@@ -74,7 +74,6 @@ Start with the [documentation index](docs/README.md), or jump directly to:
 - [Architecture Decision Records](docs/adr/README.md)
 - [End-to-end test report](docs/TEST_REPORT.md)
 - [Reviewer guide](docs/JUDGE-GUIDE.md)
-- [Two-minute demo script](docs/DEMO-SCRIPT.md)
 - [Visual design case study](docs/case-study/parivahan-sarathi-design-case-study.pdf)
 
 ## Technology

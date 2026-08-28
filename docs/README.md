@@ -16,7 +16,6 @@ This folder contains the evidence behind the Parivahan Sarathi prototype. The re
 
 - [Submission copy and checklist](SUBMISSION.md)
 - [Reviewer guide](JUDGE-GUIDE.md)
-- [Two-minute demo script](DEMO-SCRIPT.md)
 - [250-word project summary](SUMMARY-250-WORDS.md)
 - [Visual product-design case study](case-study/parivahan-sarathi-design-case-study.pdf)
 - [How Codex contributed](CODEX-CONTRIBUTION.md)
