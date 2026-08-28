@@ -57,7 +57,7 @@ When changing deployed CSS, JavaScript or cached assets, update all three values
 2. `CACHE_NAME` in `sw.js`
 3. Query versions in the `APP_SHELL` list
 
-Build 50 uses `20260828-50`.
+Build 53 uses `20260828-53`.
 
 ## Rollback
 

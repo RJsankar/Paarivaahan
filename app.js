@@ -116,7 +116,7 @@ const storage = {
 const pageParams = new URLSearchParams(window.location.search);
 const judgeMode = pageParams.get('judge') === '1';
 const DEMO_STORAGE_KEYS = [
-  'ps_onboarded', 'ps-demo-mobile', 'ps-last-payment', 'ps-added-vehicles',
+  'ps_onboarded', 'ps-demo-mobile', 'ps-access-mode', 'ps-last-payment', 'ps-added-vehicles',
   'ps-hypothecation-reminder', 'ps-application-reminder', 'ps-offline-documents',
   'ps-language', 'ps-alerts'
 ];
@@ -149,6 +149,10 @@ function loadAddedVehicles() {
 }
 const savedLanguage = storage.get('ps-language', 'en');
 const state = { language: judgeMode ? 'en' : (['en', 'hi'].includes(savedLanguage) ? savedLanguage : 'en'), route: "home", recording: false, agentTimers: [], analysisTimers: [], agentRun: 0, alertsEnabled: judgeMode || storage.get("ps-alerts", "on") !== "off", profileScope: 'all', vehicles: [...defaultVehicles, ...(judgeMode ? [] : loadAddedVehicles())], paymentContext: null, currentDocument: 'dl' };
+
+function isGuestMode() {
+  return !judgeMode && !storage.get('ps-demo-mobile');
+}
 const documentCatalog = {
   dl: { title: 'Driving licence', type: 'DL', number: 'MH12 20110012345', meta: 'Ravi Kumar · Valid until 19 Sep 2026' },
   'insurance-city': { title: 'Insurance · Honda City', type: 'IN', number: '3001/MI', meta: 'ICICI Lombard · Valid until 18 Mar 2027' },
@@ -237,6 +241,49 @@ function applyLanguage(language) {
   renderTransportProfile();
   syncAlertToggle();
   restoreAgentConfirmation();
+  syncAccessExperience();
+}
+
+function syncAccessExperience() {
+  const guest = isGuestMode();
+  const hindi = state.language === 'hi';
+  document.body.classList.toggle('guest-mode', guest);
+  $('#guestHome').hidden = !guest;
+  if (guest) {
+    $('#profileMiniAvatar').textContent = 'G';
+    $('#profileMiniName').textContent = hindi ? 'गेस्ट मोड' : 'Guest mode';
+    $('#profileVehicleCount').textContent = hindi ? 'सेव करने के लिए साइन इन करें' : 'Sign in only to save';
+    $('#documentCount').textContent = '⌾';
+    $('#homeWelcomeKicker').textContent = hindi ? 'बिना साइन इन जारी रखें' : 'CONTINUE WITHOUT SIGNING IN';
+    $('#homeGreeting').innerHTML = `${hindi ? 'नमस्ते' : 'Welcome'} <span class="wave">👋</span>`;
+    $('#homeOverview').textContent = hindi ? 'बिना प्रोफाइल बनाए चालान भरें, दस्तावेज़ समझें या सेवाएं देखें।' : 'Pay a challan, understand a document, or explore services without creating a profile.';
+    $('#guestHomeTitle').textContent = hindi ? 'अभी अपना ट्रांसपोर्ट काम पूरा करें' : 'Get a transport task done now';
+    $('.guest-home-copy > .eyebrow').textContent = hindi ? 'साइन इन जरूरी नहीं' : 'NO SIGN-IN NEEDED';
+    $('.guest-home-copy > p:not(.eyebrow)').textContent = hindi ? 'बिना प्रोफाइल बनाए चालान भरें, दस्तावेज़ समझें या आधिकारिक सेवा देखें।' : 'Pay a challan, understand a document, or explore an official service without creating a profile.';
+    $('.guest-home-actions [data-action="pay-challan"] span:last-child').textContent = hindi ? 'चालान भरें' : 'Pay a challan';
+    $('.guest-home-actions [data-route="services"] span:first-child').textContent = hindi ? 'सेवाएं देखें' : 'Explore services';
+    $('.guest-signin-card strong').textContent = hindi ? 'दस्तावेज़ और रिमाइंडर एक जगह चाहिए?' : 'Want documents and reminders in one place?';
+    $('.guest-signin-card p').textContent = hindi ? 'निजी सेव प्रोफाइल चाहिए तभी मोबाइल से साइन इन करें।' : 'Sign in with your mobile only when you want a private saved profile.';
+    $('#guestSignInHome').textContent = hindi ? 'मोबाइल से साइन इन करें →' : 'Sign in with mobile →';
+    $('#view-documents .page-head h1').textContent = hindi ? 'दस्तावेज़ पढ़ें' : 'Read a document';
+    $('#view-documents .page-head p:not(.eyebrow)').textContent = hindi ? 'चालान या दस्तावेज़ अपलोड करें। गेस्ट फाइल प्रोफाइल में सेव नहीं होगी।' : 'Upload a challan or transport document. Guest files are not added to a saved profile.';
+    $('#view-documents .demo-data-note').textContent = hindi ? 'गेस्ट मोड · इस डिवाइस पर कोई निजी दस्तावेज़ सूची सेव नहीं है।' : 'Guest mode · No private document list is stored on this device.';
+    $('[data-initial-message] p').textContent = hindi ? 'नमस्ते! चालान, दस्तावेज़ या किसी भी ट्रांसपोर्ट सेवा के बारे में पूछें। साइन इन जरूरी नहीं है।' : 'Hello! Ask about a challan, document, or any transport service. You do not need to sign in.';
+    $('#view-help .help-card p').textContent = hindi ? 'साइन इन के बाद सेव किए वाहन और लाइसेंस के आधार पर राज्य सहायता दिखाई जाती है।' : 'State help can be personalised after you sign in and save a vehicle or licence.';
+  } else {
+    $('#profileMiniAvatar').textContent = 'RK';
+    $('#profileMiniName').textContent = 'Ravi Kumar';
+    $('#profileVehicleCount').textContent = vehicleCountCopy(state.vehicles.length);
+    $('#documentCount').textContent = String(1 + (state.vehicles.length * 3));
+    $('#homeWelcomeKicker').textContent = translations[state.language].welcomeBack;
+    $('#homeGreeting').innerHTML = `<span>${escapeMarkup(translations[state.language].hello)}</span>, Ravi <span class="wave">👋</span>`;
+    $('#homeOverview').textContent = translations[state.language].overview;
+    $('#view-documents .page-head h1').textContent = translations[state.language].yourDocs;
+    $('#view-documents .page-head p:not(.eyebrow)').textContent = translations[state.language].docIntro;
+    $('#view-documents .demo-data-note').textContent = 'Sample data shown for this demo — not a live connection to Parivahan records.';
+    $('[data-initial-message] p').textContent = translations[state.language].welcomeChat;
+    $('#view-help .help-card p').textContent = 'Ravi’s saved vehicles and licence are registered in Maharashtra.';
+  }
 }
 
 function syncAlertToggle() {
@@ -278,6 +325,13 @@ function resetOpenModals() {
 
 function navigate(route) {
   if (!$('#view-' + route)) route = 'home';
+  if (isGuestMode() && route === 'alerts') {
+    resetOpenModals();
+    $('.sidebar').classList.remove('open'); $('.mobile-overlay').classList.remove('open');
+    history.replaceState(null, '', '#home');
+    openGuestGate('Sign in to receive deadline alerts');
+    return;
+  }
   resetOpenModals();
   if (route !== 'companion') stopRecording();
   state.route = route;
@@ -640,6 +694,8 @@ $('#paymentMobile').addEventListener('input', validatePaymentMobile);
 $('#continueSignedInPayment').addEventListener('click', () => {
   if ($('#continueSignedInPayment').disabled) return;
   if (!storage.set('ps-demo-mobile', $('#paymentMobile').value)) toast('Receipt history may not persist on this device.');
+  storage.set('ps-access-mode', 'mobile');
+  syncAccessExperience();
   state.paymentContext = 'profile'; closeModal('paymentAccessModal'); setTimeout(runAgent, 120);
 });
 $('#agentDone').addEventListener('click', () => {
@@ -670,6 +726,10 @@ $('#voiceButton').addEventListener('click', () => {
 });
 $('#clearChat').addEventListener('click', () => { storage.remove('ps-last-payment'); $$('.message:not([data-initial-message])', $('#chatBody')).forEach(x => x.remove()); toast(state.language === 'hi' ? 'बातचीत साफ की गई' : 'Conversation cleared'); });
 $('#profileMiniButton').addEventListener('click', () => {
+  if (isGuestMode()) {
+    openGuestGate('Sign in to create your saved transport profile');
+    return;
+  }
   const labels = { en: 'English', hi: 'हिंदी' };
   $('#profileLanguageLabel').textContent = labels[state.language] || labels.en;
   const mobile = storage.get('ps-demo-mobile');
@@ -677,6 +737,36 @@ $('#profileMiniButton').addEventListener('click', () => {
   $('#profileAccessValue').textContent = mobile ? `+91 ${mobile.slice(0, 2)}••••••${mobile.slice(-2)}` : 'Guest demo';
   $('#profileLogout').textContent = mobile ? 'Log out' : 'Exit guest profile';
   openModal('profileModal');
+});
+
+function validateGuestSignIn() {
+  const input = $('#guestSignInMobile');
+  input.value = input.value.replace(/\D/g, '').slice(0, 10);
+  $('#guestSignInContinue').disabled = !/^\d{10}$/.test(input.value);
+}
+
+function openGuestGate(title = 'Sign in only when you want things saved') {
+  $('#guestGateTitle').textContent = title;
+  $('#guestSignInMobile').value = '';
+  $('#guestSignInContinue').disabled = true;
+  openModal('guestGateModal');
+}
+
+$('#guestSignInHome').addEventListener('click', () => openGuestGate('Create your saved transport profile'));
+$('#guestSignInMobile').addEventListener('input', validateGuestSignIn);
+$('#guestSignInContinue').addEventListener('click', () => {
+  if ($('#guestSignInContinue').disabled) return;
+  const mobile = $('#guestSignInMobile').value;
+  if (!storage.set('ps-demo-mobile', mobile)) {
+    toast('Sign-in could not be saved on this device. You can continue as a guest.');
+    return;
+  }
+  storage.set('ps-access-mode', 'mobile');
+  storage.set('ps_onboarded', 'true');
+  closeModal('guestGateModal');
+  applyLanguage(state.language);
+  navigate('home');
+  toast(`Demo profile ready · +91 ${mobile.slice(0, 2)}••••••${mobile.slice(-2)}`);
 });
 function renderPrivacyInventory() {
   const offlineDocuments = storage.getJSON('ps-offline-documents', []);
@@ -1226,10 +1316,12 @@ function startProfileBuild() {
 function finishOnboarding(remind = false) {
   clearOnboardingTimers();
   storage.set('ps_onboarded', 'true');
+  storage.set('ps-access-mode', onboardingState.mode === 'guest' ? 'guest' : 'mobile');
   const overlay = $('#onboardingOverlay');
   overlay.hidden = true;
   overlay.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  syncAccessExperience();
   navigate('home');
   if (remind) toast('DL reminder set for one week from today');
 }
@@ -1265,12 +1357,18 @@ function initializeOnboarding() {
     });
     continueButton.addEventListener('click', () => {
       if (continueButton.disabled) return;
-      onboardingState.mode = 'mobile'; storage.set('ps-demo-mobile', mobileInput.value); showOnboardingScreen(3);
+      onboardingState.mode = 'mobile'; storage.set('ps-demo-mobile', mobileInput.value); storage.set('ps-access-mode', 'mobile'); showOnboardingScreen(3);
     });
-    $('#onboardingGuest').addEventListener('click', () => { onboardingState.mode = 'guest'; showOnboardingScreen(3); });
+    $('#onboardingGuest').addEventListener('click', () => {
+      onboardingState.mode = 'guest';
+      storage.remove('ps-demo-mobile');
+      storage.set('ps-access-mode', 'guest');
+      finishOnboarding(false);
+      toast('Guest mode · Sign in only when you want to save');
+    });
     $('#onboardingFinish').addEventListener('click', () => finishOnboarding(false));
     $('#onboardingRemind').addEventListener('click', () => finishOnboarding(true));
-    resetButton.addEventListener('click', () => { storage.remove('ps_onboarded'); storage.remove('ps-demo-mobile'); location.reload(); });
+    resetButton.addEventListener('click', () => { storage.remove('ps_onboarded'); storage.remove('ps-demo-mobile'); storage.remove('ps-access-mode'); location.reload(); });
   } catch (error) {
     console.warn('Onboarding unavailable; continuing to dashboard.', error);
     clearOnboardingTimers();
@@ -1296,7 +1394,7 @@ function initializeJudgeMode() {
   });
   $('#resetJudgeDemo').addEventListener('click', () => {
     clearDemoStorage({ keepOnboarding: true });
-    window.location.replace(`${location.pathname}?judge=1&build=20260828-50#home`);
+    window.location.replace(`${location.pathname}?judge=1&build=20260828-53#home`);
   });
 }
 

@@ -1,9 +1,9 @@
-const CACHE_NAME = 'parivahan-sarathi-20260828-50';
+const CACHE_NAME = 'parivahan-sarathi-20260828-53';
 const APP_SHELL = [
   './',
   './index.html',
-  './styles.css?v=20260828-50',
-  './app.js?v=20260828-50',
+  './styles.css?v=20260828-53',
+  './app.js?v=20260828-53',
   './manifest.webmanifest',
   './404.html',
   './assets/brand/favicon.svg',

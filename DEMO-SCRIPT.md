@@ -1,6 +1,6 @@
 # Two-Minute Judge Demo Script
 
-Use the normal Build 50 URL for the recording. Complete onboarding beforehand, select English, close unrelated tabs and begin on `#home`. Judge Mode is useful for live evaluation, but keep its reviewer controls out of the recorded citizen story.
+Use the normal Build 53 URL for the recording. Complete onboarding beforehand, select English, close unrelated tabs and begin on `#home`. Judge Mode is useful for live evaluation, but keep its reviewer controls out of the recorded citizen story.
 
 ## 0:00–1:00 — One citizen, one complete journey
 

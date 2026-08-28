@@ -506,3 +506,32 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible { 
   .privacy-inventory > div { min-height:62px; }
   .privacy-actions { grid-template-columns:1fr; }
 }
+
+/* Guest experience: public utility first, saved profile only after sign-in. */
+.guest-home { display:none; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:18px; margin-bottom:28px; padding:24px; border:1px solid rgba(255,107,0,.18); border-radius:22px; background:linear-gradient(135deg,#fff8f2 0%,#fff 52%,#f1f2ff 100%); box-shadow:0 16px 42px rgba(29,35,87,.08); }
+.guest-home-copy h2 { margin:4px 0 7px; color:var(--ink); font-size:26px; line-height:1.15; letter-spacing:-.035em; }
+.guest-home-copy > p:not(.eyebrow) { max-width:600px; margin:0; color:var(--muted); font-size:11px; line-height:1.55; }
+.guest-home-actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; }
+.guest-signin-card { display:grid; grid-template-columns:38px 1fr; gap:10px; align-content:center; padding:17px; border:1px solid rgba(31,37,105,.1); border-radius:16px; background:rgba(255,255,255,.88); }
+.guest-lock { width:36px; height:36px; display:grid; place-items:center; border-radius:11px; color:var(--indigo); background:var(--indigo-soft); font-weight:800; }
+.guest-signin-card strong { font-size:11px; line-height:1.35; }
+.guest-signin-card p { margin:4px 0 0; color:var(--muted); font-size:8px; line-height:1.45; }
+.guest-signin-card .text-button { grid-column:2; justify-self:start; padding:0; }
+.guest-gate-modal { width:min(500px,100%); }
+.guest-gate-modal > h2 { max-width:390px; margin:5px 35px 8px 0; font-size:23px; letter-spacing:-.03em; }
+.guest-gate-copy { margin:0 0 17px; color:var(--muted); font-size:10px; line-height:1.55; }
+.guest-gate-modal .primary-button { margin-top:12px; }
+body.guest-mode .guest-home { display:grid; }
+body.guest-mode .home-grid, body.guest-mode .activity-section { display:none; }
+body.guest-mode #view-documents .documents-panel, body.guest-mode #saveOfflineVault { display:none; }
+body.guest-mode #view-documents .documents-layout { grid-template-columns:1fr; }
+body.guest-mode #view-documents .upload-card { width:100%; max-width:720px; justify-self:center; }
+body.guest-mode #documentCount { font-size:9px; }
+body.guest-mode .nav-item[data-route="alerts"] .nav-dot { opacity:.35; }
+
+@media (max-width:760px) {
+  .guest-home { grid-template-columns:1fr; padding:18px; border-radius:18px; }
+  .guest-home-copy h2 { font-size:23px; }
+  .guest-home-actions { display:grid; grid-template-columns:1fr; }
+  .guest-home-actions .primary-button,.guest-home-actions .secondary-button { width:100%; justify-content:center; }
+}

@@ -1,6 +1,6 @@
 # End-to-End Regression Report
 
-**Build:** 20260828-50  
+**Build:** 20260828-53
 **Date:** 28 August 2026  
 **Viewports:** 1440 × 900 desktop and 390 × 844 mobile  
 **Result:** Pass after fixes
@@ -92,3 +92,21 @@
 - Removed Tamil from the language control, translation dictionary, chat behavior, onboarding copy and every current product/submission claim.
 - Retained English and Hindi as the two demonstrable interface languages.
 - Added a regression assertion that fails if a Tamil language control is reintroduced unintentionally.
+
+## Guest-access correction in build 53
+
+1. **Guest exploration looked signed in.** Choosing “Explore without signing in” now lands on a neutral public-utility home instead of creating Ravi’s synthetic profile.
+2. **Private-looking data appeared without consent.** Guest Home hides Ravi’s vehicles, licence deadline and activity; guest Documents shows only the upload-and-read tool, not seeded records.
+3. **Login blocked low-risk tasks.** Challan payment, document reading, Services and Ask Sarathi remain available without sign-in.
+4. **Saved features lacked a clear boundary.** Alerts and the profile control now explain why mobile sign-in is needed and request it only for saved documents, reminders and history.
+5. **Guest onboarding performed a fake profile build.** The guest option now exits onboarding immediately, while mobile sign-in retains the full profile-building sequence.
+6. **Session transition was unclear.** Completing mobile sign-in updates the shell in place to Ravi’s saved synthetic profile and unlocks alerts without a reload.
+
+### Build 53 verification evidence
+
+- Static smoke test: pass; 137 unique IDs and 22 linked documentation files.
+- Guest onboarding: pass; no Ravi greeting, vehicle dashboard or recent activity visible.
+- Guest document reading: pass; upload surface visible and seeded licence number hidden.
+- Guest challan payment: pass; explicit no-login choice and guest-only automation disclosure.
+- Optional mobile sign-in: pass; validated ten-digit entry restores the synthetic profile and alerts.
+- Console: no warnings or errors across guest, payment, sign-in and alert checks.

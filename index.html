@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260828-50">
+  <link rel="stylesheet" href="styles.css?v=20260828-53">
 </head>
 <body>
   <div class="app-shell">
@@ -46,8 +46,8 @@
         </div>
         <button class="nav-item" data-route="help"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.4 2.2c-.9.4-1.2 1-1.2 1.8M12 17h.01"/></svg></span><span data-i18n="navHelp">Help & safety</span></button>
         <button type="button" class="profile-mini" id="profileMiniButton" aria-haspopup="dialog">
-          <div class="avatar">RK</div>
-          <div><strong>Ravi Kumar</strong><small id="profileVehicleCount">2 vehicles · Maharashtra</small></div>
+          <div class="avatar" id="profileMiniAvatar">RK</div>
+          <div><strong id="profileMiniName">Ravi Kumar</strong><small id="profileVehicleCount">2 vehicles · Maharashtra</small></div>
           <span class="chevron">›</span>
         </button>
       </div>
@@ -77,9 +77,26 @@
 
       <section id="view-home" class="view active" data-view="home">
         <div class="page-head">
-          <div><p class="eyebrow" data-i18n="welcomeBack">WELCOME BACK</p><h1><span data-i18n="hello">Namaste</span>, Ravi <span class="wave">👋</span></h1><p data-i18n="overview">Here’s what needs attention across your transport profile.</p></div>
+          <div><p class="eyebrow" id="homeWelcomeKicker" data-i18n="welcomeBack">WELCOME BACK</p><h1 id="homeGreeting"><span data-i18n="hello">Namaste</span>, Ravi <span class="wave">👋</span></h1><p id="homeOverview" data-i18n="overview">Here’s what needs attention across your transport profile.</p></div>
           <button class="primary-button" data-route="companion"><span>✦</span><span data-i18n="askSarathi">Ask Sarathi</span></button>
         </div>
+
+        <section class="guest-home" id="guestHome" hidden aria-labelledby="guestHomeTitle">
+          <div class="guest-home-copy">
+            <p class="eyebrow">NO SIGN-IN NEEDED</p>
+            <h2 id="guestHomeTitle">Get a transport task done now</h2>
+            <p>Pay a challan, understand a document, or explore an official service without creating a profile.</p>
+            <div class="guest-home-actions">
+              <button class="primary-button" data-action="pay-challan"><span>₹</span><span>Pay a challan</span></button>
+              <button class="secondary-button" data-route="services"><span>Explore services</span><span>→</span></button>
+            </div>
+          </div>
+          <aside class="guest-signin-card">
+            <span class="guest-lock" aria-hidden="true">⌾</span>
+            <div><strong>Want documents and reminders in one place?</strong><p>Sign in with your mobile only when you want a private saved profile.</p></div>
+            <button class="text-button" id="guestSignInHome">Sign in with mobile →</button>
+          </aside>
+        </section>
 
         <div class="home-grid">
           <article class="card health-card">
@@ -321,7 +338,7 @@
         <div><span>5</span><strong>Official handoff</strong><small>Payment, submission and receipt reconciliation</small></div>
       </div>
       <div class="architecture-guardrails"><strong>Production guardrails</strong><span>No undocumented APIs</span><span>Data minimisation</span><span>Encryption &amp; deletion controls</span><span>Human support fallback</span></div>
-      <p class="prototype-source">Guidance references public MoRTH and Parivahan resources. Fee ranges and timelines are illustrative and must be verified on the relevant official portal.<small>Build 50 · Sources reviewed 24 Aug 2026 · Regression tested 28 Aug 2026</small></p>
+      <p class="prototype-source">Guidance references public MoRTH and Parivahan resources. Fee ranges and timelines are illustrative and must be verified on the relevant official portal.<small>Build 53 · Sources reviewed 24 Aug 2026 · Regression tested 28 Aug 2026</small></p>
       <button class="primary-button full" data-close="prototypeInfoModal">I understand</button>
     </section>
   </div>
@@ -397,6 +414,19 @@
         <button class="primary-button full" id="continueSignedInPayment" disabled><span data-i18n="continueSaveReceipt">Continue and save receipt</span> →</button>
       </div>
       <p class="payment-access-trust" data-i18n="paymentAccessTrust">🔒 No government username, password or OTP is requested. No real payment occurs.</p>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="guestGateModal" aria-hidden="true">
+    <section class="modal guest-gate-modal" role="dialog" aria-modal="true" aria-labelledby="guestGateTitle">
+      <button class="modal-close" data-close="guestGateModal" aria-label="Close sign-in options">×</button>
+      <p class="eyebrow">SAVE A PRIVATE PROFILE</p>
+      <h2 id="guestGateTitle">Sign in only when you want things saved</h2>
+      <p class="guest-gate-copy">Documents, alerts and reminders belong to your private profile. Guest challan payment, document reading, services and Ask Sarathi remain available without signing in.</p>
+      <label class="vehicle-field mobile-field"><span>Mobile number</span><div class="mobile-number-input"><b>+91</b><input id="guestSignInMobile" type="tel" inputmode="numeric" placeholder="9876543210" maxlength="10" autocomplete="tel-national"></div><small>10 digits · No OTP in this demo</small></label>
+      <button class="primary-button full" id="guestSignInContinue" disabled><span>Create demo profile</span><span>→</span></button>
+      <button class="onboarding-remind" data-close="guestGateModal">Continue without signing in</button>
+      <p class="payment-access-trust">🔒 Stored only in this browser · No government account is accessed</p>
     </section>
   </div>
 
@@ -506,6 +536,6 @@
 
   <div class="toast" id="toast" role="status"><span>✓</span><p></p></div>
   <div class="mobile-overlay"></div>
-  <script src="app.js?v=20260828-50"></script>
+  <script src="app.js?v=20260828-53"></script>
 </body>
 </html>
