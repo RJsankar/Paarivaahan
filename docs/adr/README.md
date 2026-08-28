@@ -17,7 +17,7 @@ This directory records significant product and technical decisions for Parivahan
 | [0002](0002-hash-based-routing.md) | Use hash-based client navigation | Accepted |
 | [0003](0003-synthetic-data-and-simulated-integrations.md) | Use synthetic data and controlled simulations | Accepted |
 | [0004](0004-localstorage-for-demo-state.md) | Use localStorage only for non-sensitive demo state | Accepted |
-| [0005](0005-dictionary-based-localization.md) | Use dictionary-based EN/HI/TA localization in the prototype | Accepted |
+| [0005](0005-dictionary-based-localization.md) | Use dictionary-based English/Hindi localization in the prototype | Accepted |
 | [0006](0006-deterministic-guided-flow-engine.md) | Use deterministic state machines for guided services | Accepted |
 | [0007](0007-ai-guidance-boundary.md) | Separate AI guidance from consequential actions | Proposed |
 | [0008](0008-controlled-portal-automation.md) | Demonstrate automation against a controlled mock portal | Accepted |

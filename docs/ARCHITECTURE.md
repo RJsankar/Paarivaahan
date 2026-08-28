@@ -67,5 +67,4 @@ observability, fraud controls, accessibility, grievance and human support.
 - Stale regulatory sources fail to an official confirmation path.
 - Citizens can revoke consent and request deletion subject to applicable obligations.
 
-The detailed decisions and alternatives are maintained in `ADR/`.
-
+The detailed decisions and alternatives are maintained in [`adr/`](adr/README.md).

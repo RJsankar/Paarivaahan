@@ -2,8 +2,8 @@
 
 ## Open the build
 
-- **Public URL:** `[ADD PUBLIC HTTPS URL]`
-- **Login:** None required
+- **Public URL:** https://paarivaahan.vercel.app/?build=20260828-53#home
+- **Login:** None required for guest tasks; mobile sign-in is optional for saved profile features
 - **Data:** Synthetic demo profile only
 - **Recommended primary test:** Mobile, approximately 390 × 844
 - **Also tested:** Desktop, approximately 1440 × 900

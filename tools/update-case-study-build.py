@@ -6,7 +6,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGET = ROOT / "output" / "pdf" / "parivahan-sarathi-design-case-study.pdf"
+TARGET = ROOT / "docs" / "case-study" / "parivahan-sarathi-design-case-study.pdf"
 SOURCE = ROOT / "tmp" / "pdfs" / "case-study-build48.pdf"
 SOURCE.parent.mkdir(parents=True, exist_ok=True)
 SOURCE.write_bytes(TARGET.read_bytes())
@@ -20,13 +20,13 @@ def overlay(page_number: int):
         c.rect(221, 156, 14, 13, stroke=0, fill=1)
         c.setFillColor(HexColor("#FFFFFF"))
         c.setFont("Helvetica", 9)
-        c.drawString(222.8, 158.1, "50")
+        c.drawString(222.8, 158.1, "53")
     elif page_number == 7:
         c.setFillColor(HexColor("#FFFFFF"))
         c.rect(81, 17, 11, 11, stroke=0, fill=1)
         c.setFillColor(HexColor("#697084"))
         c.setFont("Helvetica", 7)
-        c.drawString(82.1, 18.6, "50")
+        c.drawString(82.1, 18.6, "53")
     elif page_number == 8:
         c.setFillColor(HexColor("#FFFFFF"))
         c.rect(382, 334, 122, 19, stroke=0, fill=1)
@@ -38,7 +38,7 @@ def overlay(page_number: int):
         c.rect(751, 290, 40, 34, stroke=0, fill=1)
         c.setFillColor(HexColor("#FF6B00"))
         c.setFont("Helvetica-Bold", 24)
-        c.drawString(756, 295, "50")
+        c.drawString(756, 295, "53")
         c.setFillColor(HexColor("#070922"))
         c.rect(233, 107, 24, 24, stroke=0, fill=1)
         c.setFillColor(HexColor("#FFFFFF"))
@@ -48,7 +48,7 @@ def overlay(page_number: int):
         c.rect(555, 107, 42, 24, stroke=0, fill=1)
         c.setFillColor(HexColor("#FF6B00"))
         c.setFont("Helvetica-Bold", 18)
-        c.drawCentredString(576, 111, "125")
+        c.drawCentredString(576, 111, "137")
         c.setFillColor(HexColor("#FFFFFF"))
         c.rect(751, 207, 169, 40, stroke=0, fill=1)
         c.setFillColor(HexColor("#697084"))

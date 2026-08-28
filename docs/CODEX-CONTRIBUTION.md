@@ -27,7 +27,7 @@ The submitted web application does not call a live OpenAI API. Chat, extraction 
 
 - Product requirements: `PRD.md`
 - Research and source register: `RESEARCH.md`
-- Architecture decisions: `ADR/`
+- Architecture decisions: [`adr/`](adr/README.md)
 - Regression history: `TEST_REPORT.md`
 - AI acceptance set and threat model: `AI-EVALUATION.md`, `RESPONSIBLE-AI-THREAT-MODEL.md`
 - Benchmark and pilot method: `BENCHMARK.md`, `PILOT-PLAN.md`

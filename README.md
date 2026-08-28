@@ -1,62 +1,97 @@
 # Parivahan Sarathi
 
-> Independent Build What Moves India hackathon prototype. Not affiliated with or endorsed by the Government of India.
+> A mobile-first transport guardian that turns fragmented portal journeys into one clear next action.
 
-A high-fidelity, responsive hackathon prototype for the Parivahan Sarathi PRD. It implements a person-centred transport profile and complete guided demo journeys:
+[**Open the live app**](https://paarivaahan.vercel.app/?build=20260828-53#home) · [**Replay onboarding**](https://paarivaahan.vercel.app/?demo=onboarding&build=20260828-53#home) · [**60-second Judge Mode**](https://paarivaahan.vercel.app/?judge=1&build=20260828-53#home)
 
-- Bilingual voice/text companion (English and Hindi UI previews)
-- Transport-document upload with simulated structured challan extraction and confidence scoring
-- Controlled mock Parivahan browser agent with a safe, staged payment demonstration
-- Proactive Guardian alerts, a local-first document wallet, renewal guidance, application tracking, multi-vehicle status, trust and safety states
-- Citizen-controlled guided flows for IDP, RC transfer, address change, hypothecation removal, lost documents, and application recovery
+![Parivahan Sarathi product preview](assets/brand/og-card.png)
+
+Parivahan Sarathi is an independent **Build What Moves India** hackathon prototype. It helps a citizen understand deadlines, documents, forms and official handoffs across transport services—without pretending to replace government portals.
+
+## Why it matters
+
+A government service being online does not guarantee that a citizen knows:
+
+- what requires attention now;
+- which document or form is needed;
+- where the official journey continues; or
+- whether a payment or application actually completed.
+
+Sarathi places urgency before navigation and explains the next step in plain language.
+
+## What to try
+
+| Journey | What it demonstrates |
+|---|---|
+| **Guest access** | Pay a challan, read a document, explore services or ask for guidance without signing in. |
+| **Driving-licence renewal** | A prioritised deadline, four plain-language steps, source metadata and an official handoff. |
+| **Document wallet** | Multi-vehicle records, attention filtering, offline snapshots and deliberate sharing. |
+| **Challan payment** | Optional login, controlled automation, explicit failure recovery and a synthetic receipt. |
+| **Form Agent** | Reviewable IDP form preparation while CAPTCHA, OTP, declarations, payment and submission remain with the citizen. |
+| **English and Hindi** | Interface-level language switching on desktop and mobile. |
+
+## Responsible prototype boundary
+
+The build uses synthetic citizen data and deterministic demonstrations. It does **not** access government records, process real payments, submit applications or request OTPs. Production would require approved APIs, explicit consent, identity controls, security review and receipt reconciliation.
+
+> **AI prepares; the citizen authorises.**
 
 ## Run locally
+
+No dependency installation or build step is required.
 
 ```bash
 python3 -m http.server 8765
 ```
 
-Then open [http://localhost:8765](http://localhost:8765).
+Open `http://localhost:8765/?demo=onboarding#home`.
 
-To replay first-time onboarding, open `http://localhost:8765/?demo=onboarding#home`.
-
-For a deterministic reviewer path, open `http://localhost:8765/?judge=1#home`. Judge Mode resets synthetic state on each load and exposes one-click entry to the licence journey, document wallet and Form Agent.
-
-## Validate
-
-No package installation is required. With Node.js 18 or newer:
+To run the regression checks with Node.js 18 or newer:
 
 ```bash
 npm test
 ```
 
-The smoke test parses the application scripts, checks duplicate IDs and required reviewer surfaces, verifies build/cache version consistency, checks cached assets, and guards the keyboard-accessible alerts switch.
+## Repository map
 
-This is a front-end demo. Document AI, STT/TTS, WhatsApp, persistence, and payment are intentionally simulated; production integrations require backend credentials, consent controls, and government/API partnerships described in the PRD.
+```text
+.
+├── index.html              # Application shell and accessible UI
+├── app.js                  # State, routing, flows and validation
+├── styles.css              # Responsive design system
+├── sw.js                   # Offline application shell
+├── assets/                 # Brand and vehicle imagery
+├── tests/                  # Dependency-free regression checks
+├── tools/                  # Reproducible asset/document utilities
+└── docs/                   # Product, research, architecture and evidence
+```
 
-## Documentation
+Start with the [documentation index](docs/README.md), or jump directly to:
 
-- [Product requirements](PRD.md)
-- [Research and evidence brief](RESEARCH.md)
-- [Architecture Decision Records](ADR/README.md)
-- [End-to-end regression report](TEST_REPORT.md)
-- [Submission pack](SUBMISSION.md)
-- [Reviewer guide](JUDGE-GUIDE.md)
-- [Two-minute demo script](DEMO-SCRIPT.md)
-- [How Codex contributed](CODEX-CONTRIBUTION.md)
-- [Mock and production boundaries](MOCKS-AND-LIMITATIONS.md)
-- [Architecture](ARCHITECTURE.md)
-- [Security and privacy](SECURITY-AND-PRIVACY.md)
-- [Accessibility](ACCESSIBILITY.md)
-- [AI behavior evaluation pack](AI-EVALUATION.md)
-- [Task-flow benchmark method](BENCHMARK.md)
-- [Maharashtra pilot plan](PILOT-PLAN.md)
-- [Responsible AI threat model](RESPONSIBLE-AI-THREAT-MODEL.md)
-- [Performance and reliability budget](PERFORMANCE.md)
-- [Deployment verification](DEPLOYMENT.md)
-- [Attributions and rights checklist](ATTRIBUTIONS.md)
-- [Visual product design case study](output/pdf/parivahan-sarathi-design-case-study.pdf)
+- [Product requirements](docs/PRD.md)
+- [Research and evidence](docs/RESEARCH.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Architecture Decision Records](docs/adr/README.md)
+- [End-to-end test report](docs/TEST_REPORT.md)
+- [Reviewer guide](docs/JUDGE-GUIDE.md)
+- [Two-minute demo script](docs/DEMO-SCRIPT.md)
+- [Visual design case study](docs/case-study/parivahan-sarathi-design-case-study.pdf)
 
-## Submission status
+## Technology
 
-The public HTTPS URL and public two-minute video still need to be inserted in `SUBMISSION.md` and `JUDGE-GUIDE.md` before submission. Vehicle-image provenance must also be confirmed in `ATTRIBUTIONS.md`; this is the only unresolved rights gate.
+- Vanilla HTML, CSS and JavaScript
+- Hash-based single-page routing
+- Local browser persistence for non-sensitive demo state
+- Service-worker shell caching
+- Responsive desktop and mobile navigation
+- Dependency-free Node.js smoke tests
+
+## Status
+
+Build **20260828-53** is live on Vercel and linked to the GitHub `main` branch. The application, documentation and evaluation evidence use the same tested source state.
+
+## Disclaimer
+
+Parivahan Sarathi is an independent hackathon prototype. It is not affiliated with or endorsed by the Government of India, MoRTH or Parivahan.
+
+Released under the [MIT License](LICENSE).

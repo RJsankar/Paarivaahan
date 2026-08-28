@@ -85,13 +85,31 @@ assert.match(app, /function decorateSourceFreshness/, 'Dynamic source freshness 
 assert(!/\.master-toggle input\s*\{[^}]*display\s*:\s*none/i.test(css), 'Alert switch cannot hide the checkbox with display:none');
 assert.match(css, /\.master-toggle input:focus-visible \+ i/, 'Alert switch needs a visible keyboard-focus style');
 
-const summary = await read('SUMMARY-250-WORDS.md');
+const summary = await read('docs/SUMMARY-250-WORDS.md');
 const summaryBody = summary.split('\n').filter(line => line && !line.startsWith('#') && !line.startsWith('**Word count:')).join(' ');
 const summaryWords = summaryBody.trim().split(/\s+/).filter(Boolean).length;
 assert(summaryWords <= 250, `Submission summary is ${summaryWords} words; limit is 250`);
 
+async function collectMarkdown(directory, prefix = '') {
+  const files = [];
+  const entries = await readdir(directory, { withFileTypes: true });
+  for (const entry of entries) {
+    const relativePath = `${prefix}${entry.name}`;
+    if (entry.isDirectory()) {
+      files.push(...await collectMarkdown(new URL(`${entry.name}/`, directory), `${relativePath}/`));
+    } else if (entry.isFile() && entry.name.endsWith('.md')) {
+      files.push(relativePath);
+    }
+  }
+  return files;
+}
+
 const rootEntries = await readdir(root, { withFileTypes: true });
-const markdownFiles = rootEntries.filter(entry => entry.isFile() && entry.name.endsWith('.md')).map(entry => entry.name);
+const rootMarkdown = rootEntries
+  .filter(entry => entry.isFile() && entry.name.endsWith('.md'))
+  .map(entry => entry.name);
+const docsMarkdown = await collectMarkdown(new URL('docs/', root), 'docs/');
+const markdownFiles = [...rootMarkdown, ...docsMarkdown];
 for (const markdownFile of markdownFiles) {
   const markdown = await read(markdownFile);
   for (const match of markdown.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {

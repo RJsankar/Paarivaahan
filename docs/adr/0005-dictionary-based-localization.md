@@ -1,4 +1,4 @@
-# ADR-0005: Dictionary-based EN/HI/TA localization
+# ADR-0005: Dictionary-based English/Hindi localization
 
 - **Status:** Accepted
 - **Date:** 2026-08-24

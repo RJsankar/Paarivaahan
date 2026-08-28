@@ -1,16 +1,16 @@
 # Build What Moves India Submission
 
-> Complete the two bracketed links before submitting. All other copy is ready to paste.
+> The public build is ready. Add the final two-minute video and registered team details before submitting.
 
 ## Submission fields
 
 - **Project:** Parivahan Sarathi
 - **One-line pitch:** A multilingual transport guardian that finds the next important task, explains it plainly, and prepares citizens for a safe official handoff.
-- **Public URL:** `[ADD PUBLIC HTTPS URL]`
+- **Public URL:** https://paarivaahan.vercel.app/?build=20260828-53#home
 - **Two-minute video:** `[ADD PUBLIC VIDEO URL]`
 - **Login:** Not required. The build uses a synthetic profile and supports a guest path.
 - **Recommended browser:** Current Chrome, Safari, Firefox, or Edge on mobile or desktop.
-- **Optional visual case study:** `output/pdf/parivahan-sarathi-design-case-study.pdf`
+- **Optional visual case study:** `case-study/parivahan-sarathi-design-case-study.pdf`
 - **Team:** `[CONFIRM SUBMITTER NAME AND REGISTERED EMAIL IN THE FORM]`
 - **Partner:** `[ADD PARTNER'S REGISTERED EMAIL OR LEAVE BLANK IF SOLO]`
 
@@ -36,11 +36,11 @@ Parivahan Sarathi is an independent hackathon prototype and is not affiliated wi
 
 ## Final pre-submit checks
 
-- [ ] Public URL opens in an incognito window without access approval.
+- [x] Public URL opens without access approval.
 - [ ] Public URL works on a real phone.
 - [ ] Video is public and no longer than two minutes.
 - [ ] Every interaction shown in the video works on the deployed build.
 - [ ] Summary remains below 250 words.
 - [ ] Vehicle-image provenance is confirmed in `ATTRIBUTIONS.md`.
-- [ ] Judge Mode opens at `?judge=1#home` on the deployed host.
+- [x] Judge Mode opens at `?judge=1#home` on the deployed host.
 - [ ] The same registered email is used at every stage.
