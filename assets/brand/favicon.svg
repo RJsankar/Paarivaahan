@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Parivahan Sarathi">
+  <rect width="64" height="64" rx="16" fill="#1A237E"/>
+  <path d="M16 37c5-12 12-18 21-18 7 0 12 3 15 8-7-2-13-1-18 3-5 3-9 8-12 15z" fill="#FF6B00"/>
+  <path d="M15 42h34" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="22" cy="43" r="5" fill="#fff"/>
+  <circle cx="44" cy="43" r="5" fill="#fff"/>
+  <path d="M27 17h10" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,16 @@
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+npm-debug.log*
+coverage/
+playwright-report/
+test-results/
+*.log
+
+# Local-only deployment and recording material
+.env
+.env.*
+!.env.example
+recordings/
+tmp/

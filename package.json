@@ -1,0 +1,13 @@
+{
+  "name": "parivahan-sarathi-prototype",
+  "version": "2026.8.28-50",
+  "private": true,
+  "description": "Independent Build What Moves India hackathon prototype",
+  "license": "MIT",
+  "scripts": {
+    "test": "node tests/static-smoke.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

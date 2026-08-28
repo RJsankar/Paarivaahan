@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="theme-color" content="#171d67">
+  <meta name="description" content="Parivahan Sarathi - a multilingual transport guardian that explains the next action and prepares citizens for a safe official handoff.">
+  <meta property="og:title" content="Parivahan Sarathi - Your transport guardian">
+  <meta property="og:description" content="One profile, one prioritised action, and one safe path to the official transport service.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/brand/parivahan-sarathi-og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="application-name" content="Parivahan Sarathi">
+  <title>Parivahan Sarathi - Your transport guardian</title>
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/brand/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260828-50">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="#home" data-route="home" aria-label="Parivahan Sarathi home">
+        <span class="brand-mark">PS</span>
+        <span><strong>Parivahan Sarathi</strong><small>Your transport guardian</small></span>
+      </a>
+
+      <nav class="nav-list">
+        <button class="nav-item active" data-route="home"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10h-6v-6H9v6H3z"/></svg></span><span data-i18n="navHome">Home</span></button>
+        <button class="nav-item" data-route="documents"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM15 3v5h5M9 12h7M9 16h7"/></svg></span><span data-i18n="navDocs">Documents</span><span class="nav-count" id="documentCount">7</span></button>
+        <button class="nav-item" data-route="alerts"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></span><span data-i18n="navAlerts">Alerts</span><span class="nav-dot"></span></button>
+        <button class="nav-item" data-route="services"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/></svg></span><span data-i18n="navServices">Services</span></button>
+        <button class="nav-item" data-route="companion"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 3 9.8 8.8 4 11l5.8 2.2L12 19l2.2-5.8L20 11l-5.8-2.2z"/></svg></span><span data-i18n="navCompanion">Ask Sarathi</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="secure-note">
+          <span class="shield-icon">✓</span>
+          <div><strong data-i18n="dataSafe">Your data is safe</strong><small data-i18n="dataSafeSub">Encrypted · Never sold</small></div>
+        </div>
+        <button class="nav-item" data-route="help"><span class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.4 2.2c-.9.4-1.2 1-1.2 1.8M12 17h.01"/></svg></span><span data-i18n="navHelp">Help & safety</span></button>
+        <button type="button" class="profile-mini" id="profileMiniButton" aria-haspopup="dialog">
+          <div class="avatar">RK</div>
+          <div><strong>Ravi Kumar</strong><small id="profileVehicleCount">2 vehicles · Maharashtra</small></div>
+          <span class="chevron">›</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14"/></svg></button>
+        <div class="gov-badge"><span class="flag">🇮🇳</span><span data-i18n="govService">Independent prototype · Guidance based on public MoRTH resources</span></div>
+        <div class="top-actions">
+          <div class="language-toggle" role="group" aria-label="Choose language">
+            <button type="button" data-language="en" aria-pressed="true">EN</button>
+            <button type="button" data-language="hi" aria-pressed="false">हिंदी</button>
+          </div>
+          <button class="icon-button" data-route="alerts" aria-label="Notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span></span></button>
+        </div>
+      </header>
+      <aside class="prototype-banner" aria-label="Prototype disclosure">
+        <span class="prototype-dot">i</span>
+        <p><strong>Independent hackathon prototype</strong><span>Synthetic data · Simulated government integrations · No real payments</span></p>
+        <button id="openPrototypeInfo">What’s mocked &amp; how it scales →</button>
+      </aside>
+      <aside class="judge-panel" id="judgePanel" aria-label="Reviewer mode" hidden>
+        <div><span>JUDGE MODE</span><strong>60-second reviewer path</strong><small>Synthetic profile reset for a consistent evaluation.</small></div>
+        <div class="judge-actions"><button id="judgeHero">1 · Licence journey</button><button data-route="documents">2 · Document wallet</button><button id="judgeFormAgent">3 · Form Agent</button><button id="resetJudgeDemo">↺ Reset</button></div>
+      </aside>
+
+      <section id="view-home" class="view active" data-view="home">
+        <div class="page-head">
+          <div><p class="eyebrow" data-i18n="welcomeBack">WELCOME BACK</p><h1><span data-i18n="hello">Namaste</span>, Ravi <span class="wave">👋</span></h1><p data-i18n="overview">Here’s what needs attention across your transport profile.</p></div>
+          <button class="primary-button" data-route="companion"><span>✦</span><span data-i18n="askSarathi">Ask Sarathi</span></button>
+        </div>
+
+        <div class="home-grid">
+          <article class="card health-card">
+            <div class="card-title-row"><div><p class="eyebrow" data-i18n="healthScore">TRANSPORT OVERVIEW</p><h2 id="profileHealthTitle" data-i18n="profileNeedsAttention">Your transport profile needs attention</h2></div><span class="status-pill amber" id="healthActionCount" data-i18n="oneAction">1 action needed</span></div>
+            <div class="vehicle-showcase" id="vehicleShowcase" aria-live="polite"></div>
+            <div class="transport-switcher" id="transportSwitcher" role="tablist" aria-label="Choose transport profile view">
+              <button class="active" role="tab" aria-selected="true" data-profile-scope="all"><span class="switcher-icon">◎</span><span><strong data-i18n="allTransport">All transport</strong><small data-i18n="personalAndVehicles">Personal + 2 vehicles</small></span></button>
+              <button role="tab" aria-selected="false" data-profile-scope="MH12AB1234"><span class="switcher-icon">🚘</span><span><strong>Honda City</strong><small>MH12AB1234</small></span></button>
+              <button role="tab" aria-selected="false" data-profile-scope="MH14CD5678"><span class="switcher-icon">🛵</span><span><strong>TVS Jupiter</strong><small>MH14CD5678</small></span></button>
+              <button class="add-vehicle-tab" type="button" id="addVehicleButton"><span class="switcher-icon">＋</span><span><strong data-i18n="addVehicle">Add vehicle</strong><small data-i18n="linkAnother">Link another</small></span></button>
+            </div>
+            <div class="score-content status-content">
+              <div class="transport-status-summary attention" id="healthStatusSummary" aria-label="One action needs attention"><span>!</span><strong>Action needed</strong><small>Driving licence</small></div>
+              <div class="score-details" id="profileHealthDetails">
+                <p class="profile-group-label" data-i18n="personalDocs">PERSONAL DOCUMENTS</p>
+                <div class="health-row actionable" id="healthRenewRow" data-action="renew-profile-dl"><span class="doc-icon amber">!</span><div><strong data-i18n="licence">Driving licence</strong><small data-i18n="expires28">Expires in 28 days</small></div><span class="status-text amber-text" data-i18n="renew">Renew →</span></div>
+                <p class="profile-group-label vehicles-label" data-i18n="myVehicles">MY VEHICLES</p>
+                <button class="vehicle-health-row" data-select-vehicle="MH12AB1234"><span class="vehicle-avatar car">🚘</span><span><strong>Honda City</strong><small>MH12AB1234 · 3 documents monitored</small></span><span class="status-text green-text" data-i18n="healthy">Healthy</span><span>›</span></button>
+                <button class="vehicle-health-row" data-select-vehicle="MH14CD5678"><span class="vehicle-avatar scooter">🛵</span><span><strong>TVS Jupiter</strong><small>MH14CD5678 · 3 documents monitored</small></span><span class="status-text green-text" data-i18n="healthy">Healthy</span><span>›</span></button>
+              </div>
+            </div>
+            <div class="score-tip" id="profileScoreTip"><span>✦</span><span data-i18n="profileScoreTip">Renew your personal licence this week to keep your documents current.</span></div>
+          </article>
+
+          <article class="card urgent-card">
+            <div class="urgent-top"><span class="pulse-dot"></span><span data-i18n="attention">ATTENTION NEEDED</span><small data-i18n="dueSoon">Due soon</small></div>
+            <div class="urgent-body">
+              <div class="urgent-deadline" aria-label="28 days remaining"><strong>28</strong><span>days left</span></div>
+              <h3 data-i18n="dlExpires">Driving licence expires in 28 days</h3>
+              <p><span data-i18n="renewBefore">Renew before</span> <strong>19 Sep 2026</strong> <span data-i18n="avoidPenalty">to avoid a late fee.</span></p>
+              <button class="primary-button full" id="renewLicence"><span data-i18n="startRenewal">Start renewal guide</span><span>→</span></button>
+              <button class="text-button" id="remindLater" data-i18n="remindWeek">Remind me in a week</button>
+            </div>
+          </article>
+        </div>
+
+        <section class="quick-section">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="quickActions">QUICK ACTIONS</p><h2 data-i18n="whatDo">What would you like to do?</h2></div><button class="text-button" data-route="services"><span data-i18n="viewAll">View all services</span> →</button></div>
+          <div class="quick-grid">
+            <button class="quick-card quick-card-scan" data-route="documents" data-doc-mode="challan"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3H5a2 2 0 0 0-2 2v2M17 3h2a2 2 0 0 1 2 2v2M7 21H5a2 2 0 0 1-2-2v-2M17 21h2a2 2 0 0 0 2-2v-2M7 8h10M7 12h10M7 16h6"/></svg></span><span class="quick-copy"><strong data-i18n="readChallan">Read a challan</strong><small data-i18n="uploadPhoto">Upload a photo for plain-language details</small></span><span class="arrow">↗</span></button>
+            <button class="quick-card quick-card-voice" data-route="companion"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M8 21h8"/></svg></span><span class="quick-copy"><strong data-i18n="askByVoice">Ask by voice</strong><small data-i18n="speakLanguage">Speak in your language — no typing</small></span><span class="arrow">↗</span></button>
+            <button class="quick-card quick-card-pay" data-action="pay-challan"><span class="quick-badge">FAST</span><span class="quick-icon">₹</span><span class="quick-copy"><strong data-i18n="payChallan">Pay a challan</strong><small data-i18n="agentPortal">Let Sarathi navigate the portal for you</small></span><span class="arrow">↗</span></button>
+            <button class="quick-card quick-card-add" data-route="documents" data-doc-mode="document"><span class="quick-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v5h5M12 11v6M9 14h6"/></svg></span><span class="quick-copy"><strong data-i18n="addDocument">Add a document</strong><small data-i18n="rcInsurance">Registration, insurance, licence, pollution certificate or notice</small></span><span class="arrow">↗</span></button>
+          </div>
+        </section>
+
+        <section class="activity-section">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="recentActivity">RECENT ACTIVITY</p><h2 data-i18n="guardianWorking">Your guardian is working</h2></div></div>
+          <div class="activity-list card">
+            <div class="activity-item"><span class="timeline-icon green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12 4 4 8-9"/></svg></span><div class="activity-copy"><div class="activity-meta"><time data-i18n="twoDays">2 days ago</time><span class="activity-status green">Monitored</span></div><strong data-i18n="insuranceVerified">Insurance verified</strong><small data-i18n="insuranceRead">Policy read and expiry added to alerts</small></div></div>
+            <div class="activity-item"><span class="timeline-icon indigo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></span><div class="activity-copy"><div class="activity-meta"><time data-i18n="fiveDays">5 days ago</time><span class="activity-status indigo">Scheduled</span></div><strong data-i18n="pucReminder">PUC reminder scheduled</strong><small data-i18n="alertOn">We’ll alert you on 18 Oct 2026</small></div></div>
+            <div class="activity-item"><span class="timeline-icon orange"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18l-2-1.5L12 21l-3-1.5L7 21zM10 8h4M10 12h4"/></svg></span><div class="activity-copy"><div class="activity-meta"><time data-i18n="twelveDays">12 days ago</time><span class="activity-status orange">Reviewed</span></div><strong data-i18n="challanRead">Challan read</strong><small>MH12AB1234 · ₹1,000 · Section 177</small></div></div>
+          </div>
+        </section>
+      </section>
+
+      <section id="view-documents" class="view" data-view="documents">
+        <div class="page-head"><div><p class="eyebrow" data-i18n="docVault">DOCUMENT VAULT</p><h1 data-i18n="yourDocs">Your documents</h1><p data-i18n="docIntro">Upload any transport document. Sarathi reads it and watches every deadline.</p></div><div class="page-head-actions"><button class="secondary-button" id="saveOfflineVault"><span>↓</span><span>Save all offline</span></button><button class="primary-button" id="uploadTop"><span>＋</span><span data-i18n="uploadDoc">Upload document</span></button></div></div>
+        <p class="demo-data-note">Sample data shown for this demo — not a live connection to Parivahan records.</p>
+        <div class="documents-layout">
+          <div class="card documents-panel">
+            <div class="document-controls">
+              <label class="document-search"><span aria-hidden="true">⌕</span><input id="documentSearch" type="search" placeholder="Search documents or vehicle number" aria-label="Search documents or vehicle number"></label>
+              <div class="doc-tabs"><button class="active" data-filter="all"><span data-i18n="allDocs">All documents</span> <b id="allDocumentCount">7</b></button><button data-filter="attention"><span data-i18n="needsAttention">Needs attention</span> <b id="attentionDocumentCount">1</b></button></div>
+            </div>
+            <div class="document-list">
+              <button class="document-item" data-status="attention" data-document="dl"><span class="document-symbol indigo">DL</span><span><strong data-i18n="licence">Driving licence</strong><small>MH12 20110012345</small></span><span class="doc-date"><strong class="amber-text" data-i18n="days28">28 days</strong><small>19 Sep 2026</small></span><span>›</span></button>
+              <button class="document-item" data-status="healthy" data-document="insurance-city"><span class="document-symbol orange">IN</span><span><strong data-i18n="insurance">Insurance</strong><small>ICICI Lombard · 3001/MI</small></span><span class="doc-date"><strong class="green-text" data-i18n="valid">Valid</strong><small>18 Mar 2027</small></span><span>›</span></button>
+              <button class="document-item" data-status="healthy" data-document="puc-city"><span class="document-symbol green">PU</span><span><strong>PUC certificate</strong><small>MH12AB1234</small></span><span class="doc-date"><strong class="green-text" data-i18n="valid">Valid</strong><small>02 Nov 2026</small></span><span>›</span></button>
+              <button class="document-item" data-status="healthy" data-document="rc-city"><span class="document-symbol blue">RC</span><span><strong>Registration certificate</strong><small>MH12AB1234</small></span><span class="doc-date"><strong class="green-text" data-i18n="valid">Valid</strong><small>14 Jun 2034</small></span><span>›</span></button>
+              <button class="document-item" data-status="healthy" data-document="insurance-jupiter"><span class="document-symbol orange">IN</span><span><strong>Insurance · TVS Jupiter</strong><small>MH14CD5678 · HDFC ERGO</small></span><span class="doc-date"><strong class="green-text" data-i18n="valid">Valid</strong><small>22 Jan 2027</small></span><span>›</span></button>
+              <button class="document-item" data-status="healthy" data-document="puc-jupiter"><span class="document-symbol green">PU</span><span><strong>PUC · TVS Jupiter</strong><small>MH14CD5678</small></span><span class="doc-date"><strong class="green-text" data-i18n="valid">Valid</strong><small>11 Dec 2026</small></span><span>›</span></button>
+              <button class="document-item" data-status="healthy" data-document="rc-jupiter"><span class="document-symbol blue">RC</span><span><strong>Registration certificate · TVS Jupiter</strong><small>MH14CD5678</small></span><span class="doc-date"><strong class="green-text" data-i18n="valid">Valid</strong><small>09 Apr 2032</small></span><span>›</span></button>
+            </div>
+            <div class="document-empty" id="documentEmpty" hidden role="status"><span>⌕</span><strong>No documents found</strong><p>Try another document name or vehicle number, or clear the active filter.</p><button class="secondary-button" id="clearDocumentFilters">Clear filters</button></div>
+          </div>
+
+          <aside class="card upload-card" id="uploadCard">
+            <div class="upload-visual">⇧</div>
+            <h2 data-i18n="readAnything">Let Sarathi read anything</h2>
+            <p data-i18n="supports">Challan, RC, DL, insurance, PUC or court notice</p>
+            <label class="drop-zone" for="documentInput">
+              <input id="documentInput" type="file" accept="image/jpeg,image/png,application/pdf,.jpg,.jpeg,.png,.pdf" hidden>
+              <span class="camera">▧</span>
+              <strong data-i18n="dropHere">Drop a file here</strong>
+              <small data-i18n="orBrowse">or click to browse · JPG, PNG, PDF</small>
+            </label>
+            <div class="privacy-row"><span>✓</span><span data-i18n="deletedProcessing">Encrypted and deletable after processing</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-alerts" class="view" data-view="alerts">
+        <div class="page-head"><div><p class="eyebrow" data-i18n="guardianAlerts">GUARDIAN ALERTS</p><h1 data-i18n="nothingMissed">Never miss a deadline</h1><p data-i18n="agentReasons">Sarathi combines deadlines and your response habits to alert you at the right time.</p></div><label class="master-toggle"><span><strong id="alertsStatus">Alerts are on</strong><small>WhatsApp + SMS fallback</small></span><input id="alertToggle" type="checkbox" checked aria-label="Enable Guardian alerts"><i></i></label></div>
+        <div class="alert-layout">
+          <div>
+            <article class="alert-message important"><div class="message-channel"><span>WA</span><small data-i18n="today">Today · WhatsApp</small></div><h3 data-i18n="alertDlTitle">Ravi ji, your driving licence expires in 28 days</h3><p><span data-i18n="alertDlBody">Renew before 19 Sep 2026 to avoid a late fee. I can guide you step by step.</span></p><div class="message-actions"><button class="primary-button small" id="alertRenew" data-i18n="guideMe">Guide me</button><button class="secondary-button small" id="alertSnooze" data-i18n="remindWeek">Remind me in a week</button></div><small class="source">Source: Parivahan FAQ · DL Renewal</small></article>
+            <article class="alert-message"><div class="message-channel"><span>WA</span><small>18 Oct 2026 · WhatsApp</small></div><h3 data-i18n="pucUpcoming">PUC renewal coming up</h3><p data-i18n="pucBody">Your PUC expires in 15 days. We’ll remind you with nearby centre guidance.</p></article>
+          </div>
+          <aside class="card guardian-card"><span class="guardian-orbit">✦</span><p class="eyebrow">HOW SARATHI DECIDED</p><h2 data-i18n="oneUsefulNudge">One useful nudge, not three noisy alerts</h2><p data-i18n="reasoningText">Your licence needs attention first. Insurance is healthy and PUC is still 72 days away, so today’s message only focuses on renewal.</p><div class="reason-chip"><span>✓</span><span data-i18n="yourPreferences">Based on your documents and alert preferences</span></div></aside>
+        </div>
+      </section>
+
+      <section id="view-companion" class="view companion-view" data-view="companion">
+        <div class="companion-header"><div><p class="eyebrow" data-i18n="companionLabel">YOUR TRANSPORT COMPANION</p><h1 data-i18n="askAnything">Ask Sarathi anything</h1><p data-i18n="voicePromise">Speak or type in your language. Sarathi replies the same way.</p></div><div class="online-pill"><span></span><span data-i18n="online">Online · English and Hindi</span></div></div>
+        <div class="chat-shell card">
+          <div class="chat-head"><div class="sathi-avatar">PS</div><div><strong>Parivahan Sarathi</strong><small><span></span><span data-i18n="readyHelp">Ready to help</span></small></div><button class="ghost-icon" id="clearChat" aria-label="Clear conversation">↻</button></div>
+          <div class="chat-body" id="chatBody">
+            <div class="date-divider"><span data-i18n="today">Today</span></div>
+            <div class="message incoming" data-initial-message><p data-i18n="welcomeChat">Namaste Ravi ji! Ask me about challans, renewals, documents, or any transport service. You can send a voice note too.</p><time>10:24 AM</time></div>
+            <div class="suggestion-row"><button class="suggestion" data-question="How do I renew my driving licence?" data-i18n="renewDlQuestion">Renew my driving licence</button><button class="suggestion" data-question="Pay my challan" data-i18n="payMyChallan">Pay my challan</button><button class="suggestion" data-question="Apply for an International Driving Permit" data-service-flow="idp" data-i18n="idpQuestion">International permit</button><button class="suggestion" data-question="Where can I get a PUC certificate?" data-i18n="findPuc">Find a pollution-test centre</button><button class="suggestion" data-question="Transfer my RC" data-service-flow="rc-transfer" data-i18n="transferRc">Transfer vehicle ownership</button><button class="suggestion" data-question="Remove hypothecation" data-service-flow="hypothecation" data-i18n="removeHypothecation">Remove bank loan from RC</button><button class="suggestion" data-question="Change my address" data-service-flow="address-change" data-i18n="changeAddress">Change my address</button></div>
+          </div>
+          <div class="chat-composer">
+            <button class="attach-button" aria-label="Attach document" data-route="documents" data-doc-mode="document">＋</button>
+            <input id="chatInput" type="text" data-i18n-placeholder="messagePlaceholder" placeholder="Type a message in any language…">
+            <button class="voice-button" id="voiceButton" aria-label="Record voice"><span class="mic-icon">●</span><span class="voice-label" data-i18n="holdSpeak">Hold to speak</span></button>
+            <button class="send-button" id="sendMessage" aria-label="Send">➤</button>
+          </div>
+          <div class="trust-footer"><span>⌾</span><span data-i18n="neverOtp">Sarathi will never ask for an OTP or take payment in chat.</span></div>
+        </div>
+      </section>
+
+      <section id="view-services" class="view" data-view="services">
+        <div class="page-head services-head"><div><p class="eyebrow">GUIDED SERVICES</p><h1>All Services</h1><p>11 service journeys, plus tools to track or recover an application</p></div><button class="secondary-button" data-route="home">← Back home</button></div>
+        <div class="service-glossary" role="note"><strong>New to the portal?</strong><span>RC = vehicle registration</span><span>DL = driving licence</span><span>PUC = pollution certificate</span><span>RTO = Regional Transport Office</span></div>
+        <aside class="form-agent-banner"><span class="form-agent-mark">✦</span><div><p class="eyebrow">SARATHI FORM AGENT</p><h2>Tell us once. Review every field. Submit only when ready.</h2><p>Sarathi reuses verified profile details, validates documents, and prepares a draft for the official portal. You remain in control of CAPTCHA, OTP, signature, payment, and final submission.</p></div><span class="agent-boundary-pill">Citizen-controlled</span></aside>
+        <div class="services-grid">
+          <article class="service-card"><span class="service-icon orange">₹</span><div><p class="service-hindi">चालान भुगतान</p><h2>Challan Payment</h2><p>Find, understand and pay a traffic challan.</p></div><button class="service-start" data-service-entry="challan">Start →</button></article>
+          <article class="service-card"><span class="service-icon indigo">DL</span><div><p class="service-hindi">लाइसेंस नवीनीकरण</p><h2>Renew Driving Licence (DL)</h2><p>See what to prepare and where to renew before expiry.</p></div><button class="service-start" data-service-entry="dl-renewal">Start →</button></article>
+          <article class="service-card featured form-agent-service"><span class="service-icon blue">IDP</span><div><p class="service-hindi">अंतरराष्ट्रीय ड्राइविंग परमिट</p><h2>International Driving Permit</h2><p>Let the Form Agent prepare and validate a Form 4A draft.</p><span class="agent-ready-label">✦ Form Agent ready</span></div><button class="service-start" data-service-flow="idp">Start →</button></article>
+          <article class="service-card"><span class="service-icon orange">IN</span><div><p class="service-hindi">बीमा नवीनीकरण</p><h2>Insurance Renewal</h2><p>Review your policy and renewal steps.</p></div><button class="service-start" data-service-entry="insurance">Start →</button></article>
+          <article class="service-card"><span class="service-icon green">PU</span><div><p class="service-hindi">प्रदूषण प्रमाणपत्र</p><h2>Pollution Certificate (PUC)</h2><p>Check validity and find an authorised emission-testing centre.</p></div><button class="service-start" data-service-entry="puc">Start →</button></article>
+          <article class="service-card featured"><span class="service-icon blue">RC</span><div><p class="service-hindi">वाहन स्थानांतरण</p><h2>Transfer Vehicle Ownership</h2><p>Move the registration (RC) after selling or gifting a vehicle.</p></div><button class="service-start" data-service-flow="rc-transfer">Start →</button></article>
+          <article class="service-card featured"><span class="service-icon indigo">H</span><div><p class="service-hindi">बैंक लोन हटाएं</p><h2>Remove Bank Loan from RC</h2><p>Remove the bank's name after the vehicle loan is closed.</p></div><button class="service-start" data-service-flow="hypothecation">Start →</button></article>
+          <article class="service-card featured"><span class="service-icon orange">⌂</span><div><p class="service-hindi">पता बदलें</p><h2>Address Change</h2><p>Update the address on your RC, DL or both.</p></div><button class="service-start" data-service-flow="address-change">Start →</button></article>
+          <article class="service-card"><span class="service-icon green">1</span><div><p class="service-hindi">पहला ड्राइविंग लाइसेंस</p><h2>Get Your First Driving Licence</h2><p>Start with a learner's licence, then prepare for the driving test.</p></div><button class="service-start" data-service-entry="first-dl">Start →</button></article>
+          <article class="service-card coming"><span class="service-icon blue">✓</span><div><p class="service-hindi">वाहन फिटनेस</p><h2>Vehicle Fitness</h2><p>Fitness certificate guidance for eligible vehicles.</p></div><span class="coming-pill">Coming soon</span></article>
+          <article class="service-card coming"><span class="service-icon green">♧</span><div><p class="service-hindi">ग्रीन टैक्स</p><h2>Green Tax</h2><p>Tax guidance for vehicles approaching 15 years.</p></div><span class="coming-pill">Coming soon</span></article>
+        </div>
+        <div class="service-tools-head"><div><p class="eyebrow">AFTER YOU APPLY</p><h2>Track, recover, and replace</h2><p>Close the loop when an application is pending or a document is lost.</p></div></div>
+        <div class="service-tools-grid">
+          <article class="service-tool-card"><span class="service-icon indigo">⌁</span><div><p class="service-hindi">आवेदन की स्थिति</p><h2>Track Application</h2><p>Check progress, resolve a pending item, and keep the acknowledgement.</p></div><button class="service-start" data-service-flow="track-application">Track →</button></article>
+          <article class="service-tool-card"><span class="service-icon orange">!</span><div><p class="service-hindi">खोया दस्तावेज़</p><h2>Lost RC or DL</h2><p>Prepare the right report, documents, and duplicate-issue application.</p></div><button class="service-start" data-service-flow="lost-document">Start →</button></article>
+        </div>
+      </section>
+
+      <section id="view-help" class="view" data-view="help">
+        <div class="page-head"><div><p class="eyebrow">TRUST & SAFETY</p><h1 data-i18n="helpTitle">Help when you need it</h1><p data-i18n="helpSub">Official sources, simple answers, and a clear human fallback.</p></div></div>
+        <div class="help-grid">
+          <article class="card help-card"><span>☎</span><h2>State RTO helpline</h2><p>Ravi’s saved vehicles and licence are registered in Maharashtra.</p><button class="secondary-button" id="helpHelpline">View Maharashtra helpline</button></article>
+          <article class="card help-card"><span>⌾</span><h2>Privacy controls</h2><p>Download or delete your profile and alert history at any time.</p><button class="secondary-button" id="helpPrivacy">Manage my data</button></article>
+          <article class="card help-card"><span>§</span><h2>Legal questions</h2><p>Sarathi explains documents but does not give legal advice. We’ll help you find an advocate.</p><button class="secondary-button" id="helpLegal">Find legal help</button></article>
+          <article class="card help-card"><span>ⓘ</span><h2>Prototype &amp; architecture</h2><p>See exactly what is simulated today and how approved, consent-based integrations could safely power a production service.</p><button class="secondary-button" id="helpDemoScope">View details</button></article>
+        </div>
+      </section>
+    </main>
+    <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+      <button class="nav-item active" data-route="home"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v10h-6v-6H9v6H3z"/></svg></span><span data-i18n="navHome">Home</span></button>
+      <button class="nav-item" data-route="documents"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM15 3v5h5M9 12h7M9 16h7"/></svg></span><span data-i18n="navDocs">Documents</span></button>
+      <button class="nav-item" data-route="alerts"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg></span><span data-i18n="navAlerts">Alerts</span></button>
+      <button class="nav-item" data-route="services"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/></svg></span><span data-i18n="navServices">Services</span></button>
+      <button class="nav-item" data-route="companion"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 3 9.8 8.8 4 11l5.8 2.2L12 19l2.2-5.8L20 11l-5.8-2.2z"/></svg></span><span data-i18n="navCompanion">Ask</span></button>
+    </nav>
+  </div>
+
+  <div class="onboarding-overlay" id="onboardingOverlay" aria-hidden="true" hidden>
+    <section class="onboarding-card" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+      <div class="onboarding-screen is-active" data-onboarding-screen="1">
+        <div class="onboarding-brand"><span class="onboarding-flag">🇮🇳</span><span class="brand-mark">PS</span><strong>Parivahan Sarathi</strong></div>
+        <div class="onboarding-welcome-art" aria-hidden="true"><span>✓</span></div>
+        <h1 id="onboardingTitle" class="onboarding-namaste">Welcome 🙏</h1>
+        <p class="onboarding-subtitle">Your personal transport guardian</p>
+        <p class="onboarding-government">Independent prototype · Guidance based on public MoRTH resources</p>
+        <button class="onboarding-primary" id="onboardingStart">Get started <span>→</span></button>
+        <p class="onboarding-safety">⌾ We never ask for OTP or payment</p>
+      </div>
+
+      <div class="onboarding-screen" data-onboarding-screen="2" hidden>
+        <button class="onboarding-back" id="onboardingBack" aria-label="Back to welcome">←</button>
+        <div class="onboarding-progress" aria-label="Step 1 of 3"><i class="done"></i><i></i><i></i><span>Step 1 of 3</span></div>
+        <p class="onboarding-kicker">SET UP YOUR PROFILE</p>
+        <h1>Apna mobile number daalein</h1>
+        <p class="onboarding-copy">Save your language, reminders and receipts in one personal transport profile.</p>
+        <label class="vehicle-field mobile-field"><span>Mobile number</span><div class="mobile-number-input"><b>+91</b><input id="onboardingMobile" type="tel" inputmode="numeric" placeholder="9876543210" maxlength="10" autocomplete="tel-national" spellcheck="false"></div><small>10 digits · No OTP in this demo</small></label>
+        <button class="onboarding-primary" id="onboardingContinue" disabled>Continue with mobile <span>→</span></button>
+        <button class="onboarding-ghost" id="onboardingGuest">Explore without signing in</button>
+        <p class="onboarding-trust">🔒 Stored only in this demo browser · Never sold</p>
+      </div>
+
+      <div class="onboarding-screen" data-onboarding-screen="3" hidden>
+        <div class="onboarding-progress" aria-label="Step 2 of 3"><i class="done"></i><i class="done"></i><i></i><span>Step 2 of 3</span></div>
+        <div class="profile-spinner" aria-label="Building profile"></div>
+        <p class="onboarding-kicker">STEP 2 · PREPARING YOUR PROFILE</p>
+        <h1>Building your profile</h1>
+        <p class="onboarding-copy">Sarathi is preparing a synthetic demo profile. No government lookup is performed.</p>
+        <div class="profile-sequence" aria-live="polite">
+          <div data-profile-line="1"><span>✓</span><p><strong>Language preference ready</strong><small>English · हिंदी</small></p></div>
+          <div data-profile-line="2"><span>✓</span><p><strong>Guardian reminders prepared</strong><small>Local demo notifications</small></p></div>
+          <div data-profile-line="3"><span>✓</span><p><strong>Demo transport profile ready</strong><small>Ravi · 2 synthetic vehicles</small></p></div>
+        </div>
+      </div>
+
+      <div class="onboarding-screen onboarding-summary-screen" data-onboarding-screen="4" hidden>
+        <div class="onboarding-progress" aria-label="Step 3 of 3"><i class="done"></i><i class="done"></i><i class="done"></i><span>Step 3 of 3</span></div>
+        <p class="onboarding-kicker">PROFILE READY</p>
+        <h1>Your Transport Overview</h1>
+        <p class="onboarding-mode" id="onboardingProfileMode">Mobile profile · Demo data</p>
+        <div class="onboarding-status-summary" aria-label="One action needs attention"><span>!</span><p><strong>1 action needs attention</strong><small>Your other documents are current</small></p></div>
+        <div class="onboarding-documents">
+          <div><span class="onboarding-doc-status good">✓</span><p><strong>Insurance</strong><small>Valid till 18 Mar 2027</small></p></div>
+          <div class="needs-attention"><span class="onboarding-doc-status warning">!</span><p><strong>Driving Licence</strong><small>Expires in 28 days</small></p></div>
+          <div><span class="onboarding-doc-status good">✓</span><p><strong>PUC</strong><small>Valid till 02 Nov 2026</small></p></div>
+        </div>
+        <div class="onboarding-nudge"><span>!</span><p>Your DL needs attention. We'll remind you.</p></div>
+        <button class="onboarding-primary" id="onboardingFinish">Sarathi ko shuru karein <span>→</span></button>
+        <button class="onboarding-remind" id="onboardingRemind">Remind me in a week</button>
+      </div>
+    </section>
+  </div>
+
+  <button class="demo-reset" id="resetOnboarding" hidden>↺ Reset onboarding</button>
+
+  <div class="modal-backdrop" id="prototypeInfoModal" aria-hidden="true">
+    <section class="modal prototype-info-modal" role="dialog" aria-modal="true" aria-labelledby="prototypeInfoTitle">
+      <button class="modal-close" data-close="prototypeInfoModal" aria-label="Close prototype information">×</button>
+      <p class="eyebrow">TRANSPARENCY &amp; SCALE</p>
+      <h2 id="prototypeInfoTitle">What’s real, what’s mocked, and how this could scale</h2>
+      <div class="prototype-status"><span>Independent hackathon prototype</span><strong>Not affiliated with or endorsed by the Government of India</strong></div>
+      <div class="prototype-scope-grid">
+        <article><span class="scope-icon working">✓</span><h3>Working today</h3><ul><li>Multilingual citizen interface</li><li>Guided service journeys and validation</li><li>Document upload experience</li><li>Guardian alerts and local reminders</li></ul></article>
+        <article><span class="scope-icon mocked">◇</span><h3>Simulated for safety</h3><ul><li>Vehicle, licence and challan records</li><li>Government portal connections</li><li>Payments, receipts and OTP steps</li><li>AI responses and document extraction</li></ul></article>
+      </div>
+      <h3 class="architecture-title">Safe production architecture</h3>
+      <div class="architecture-flow" aria-label="Production system flow">
+        <div><span>1</span><strong>Citizen consent</strong><small>Explicit permission and identity verification</small></div><i>→</i>
+        <div><span>2</span><strong>Approved API gateway</strong><small>Documented government or sandbox integrations</small></div><i>→</i>
+        <div><span>3</span><strong>Rules &amp; records layer</strong><small>Normalize documents, deadlines and service status</small></div><i>→</i>
+        <div><span>4</span><strong>Sarathi guidance</strong><small>Plain-language multilingual explanations</small></div><i>→</i>
+        <div><span>5</span><strong>Official handoff</strong><small>Payment, submission and receipt reconciliation</small></div>
+      </div>
+      <div class="architecture-guardrails"><strong>Production guardrails</strong><span>No undocumented APIs</span><span>Data minimisation</span><span>Encryption &amp; deletion controls</span><span>Human support fallback</span></div>
+      <p class="prototype-source">Guidance references public MoRTH and Parivahan resources. Fee ranges and timelines are illustrative and must be verified on the relevant official portal.<small>Build 50 · Sources reviewed 24 Aug 2026 · Regression tested 28 Aug 2026</small></p>
+      <button class="primary-button full" data-close="prototypeInfoModal">I understand</button>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="serviceFlowModal" aria-hidden="true">
+    <section class="modal service-flow-modal" role="dialog" aria-modal="true" aria-labelledby="serviceFlowTitle">
+      <button class="modal-close" data-close="serviceFlowModal" aria-label="Close service guide">×</button>
+      <header class="service-flow-header"><div><p class="eyebrow" id="serviceFlowLabel"></p><h2 id="serviceFlowTitle"></h2></div><div class="flow-progress" id="serviceFlowProgress" aria-label="Service progress"></div></header>
+      <p class="service-flow-boundary"><span>✓</span> Local preparation only · Nothing is submitted until you continue on an official portal.</p>
+      <div class="service-flow-body" id="serviceFlowBody"></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="analysisModal" aria-hidden="true">
+    <section class="modal analysis-modal" role="dialog" aria-modal="true" aria-labelledby="analysisTitle">
+      <button class="modal-close" data-close="analysisModal" aria-label="Close">×</button>
+      <div id="analysisLoading" class="analysis-loading">
+        <div class="scan-document"><span></span><i></i></div>
+        <p class="eyebrow">DOCUMENT INTELLIGENCE</p><h2 id="analysisTitle" data-i18n="readingDoc">Sarathi is reading your document…</h2><p id="fileName">Checking the details and confidence</p>
+        <div class="analysis-steps"><span class="done">Image prepared</span><span>Fields extracted</span><span>Details verified</span></div>
+      </div>
+      <div id="analysisResult" class="analysis-result" hidden>
+        <div class="result-heading"><span class="result-check">✓</span><div><p class="eyebrow">CHALLAN READ SUCCESSFULLY</p><h2 data-i18n="challanDetails">Challan details</h2></div><span class="confidence">96% confidence</span></div>
+        <div class="verify-note"><span>!</span><p data-i18n="verifyOriginal">Please verify these details against the original before paying.</p></div>
+        <div class="extraction-grid"><div><small data-i18n="vehicle">Vehicle</small><strong>MH12AB1234</strong></div><div><small data-i18n="amount">Amount</small><strong class="amount">₹1,000</strong></div><div><small data-i18n="section">Section</small><strong>177 · Signal jumping</strong></div><div><small data-i18n="dueDate">Due date</small><strong>30 Aug 2026</strong></div><div class="wide"><small data-i18n="authority">Issuing authority</small><strong>Maharashtra Traffic Police</strong></div></div>
+        <details class="json-details"><summary>View structured JSON</summary><pre>{
+  "document_type": "challan",
+  "vehicle_number": "MH12AB1234",
+  "amount_inr": 1000,
+  "section": "MV Act 177",
+  "due_date": "2026-08-30",
+  "confidence": 0.96
+}</pre></details>
+        <div class="modal-actions"><button class="secondary-button" data-close="analysisModal" data-i18n="dispute">Dispute</button><button class="primary-button" id="payFromResult"><span data-i18n="paySecurely">Pay via secure portal</span><span>→</span></button></div>
+        <a class="source-link" href="https://www.indiacode.nic.in/handle/123456789/1798" target="_blank" rel="noreferrer">MV Act Section 177 · View source ↗</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="agentModal" aria-hidden="true">
+    <section class="modal agent-modal" role="dialog" aria-modal="true" aria-labelledby="agentTitle">
+      <button class="modal-close" data-close="agentModal" aria-label="Close">×</button>
+      <div class="agent-head"><span class="agent-badge">✦</span><div><p class="eyebrow">AGENT ACTION</p><h2 id="agentTitle" data-i18n="payingChallan">Sarathi is paying your challan</h2></div><span class="live-pill"><i></i> LIVE</span></div>
+      <p class="agent-disclaimer" data-i18n="mockDisclaimer">Demo mode: navigating a controlled Parivahan portal. No real payment will be made.</p>
+      <div class="browser-frame">
+        <div class="browser-bar"><i></i><i></i><i></i><span>🔒 demo.parivahan.gov.in/echallan</span></div>
+        <div class="portal-content">
+          <div class="portal-brand"><span>DEMO</span><strong>Simulated eChallan portal</strong><small>No connection to a live government system</small></div>
+          <div class="portal-card"><label>Vehicle number<input value="MH12AB1234" readonly></label><label>Challan amount<input value="₹1,000" readonly></label><button class="portal-pay">Proceed to payment</button></div>
+          <div class="agent-cursor" id="agentCursor">➤</div>
+          <div class="receipt-card" id="receiptCard"><span>✓</span><h3>Payment confirmed</h3><p>Receipt #115-2026-03822</p></div>
+          <div class="payment-failure-card" id="paymentFailureCard" hidden><span>!</span><h3>Payment not completed</h3><p>Demo gateway timed out · No success receipt received</p></div>
+        </div>
+      </div>
+      <div class="agent-progress"><div class="agent-step active"><span>1</span><div><strong>Portal opened</strong><small>Secure mock environment</small></div></div><div class="agent-step"><span>2</span><div><strong>Challan found</strong><small>MH12AB1234 · ₹1,000</small></div></div><div class="agent-step"><span>3</span><div><strong>Payment confirmed</strong><small>Demo receipt generated</small></div></div></div>
+      <div class="agent-outcome-actions"><button class="secondary-button full" id="agentFailureDemo">Simulate a failed transaction</button><button class="primary-button full" id="agentRecovery" hidden>Check transaction status →</button></div>
+      <button class="primary-button full agent-done" id="agentDone" hidden><span data-i18n="viewReceipt">Done · View receipt</span><span>→</span></button>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="paymentAccessModal" aria-hidden="true">
+    <section class="modal payment-access-modal" role="dialog" aria-modal="true" aria-labelledby="paymentAccessTitle">
+      <button class="modal-close" data-close="paymentAccessModal" aria-label="Close payment options">×</button>
+      <p class="eyebrow" data-i18n="payAccessKicker">CHALLAN PAYMENT</p>
+      <h2 id="paymentAccessTitle" data-i18n="payAccessTitle">Pay without getting blocked by login</h2>
+      <p class="payment-access-copy" data-i18n="payAccessCopy">You do not need a Parivahan login for this quick demo payment. Sign in only if you want the receipt saved to your Sarathi profile.</p>
+      <div class="payment-access-options">
+        <button class="payment-access-choice featured" id="quickPayGuest"><span class="access-icon">⚡</span><span><strong data-i18n="quickPayNoLogin">Quick pay without login</strong><small data-i18n="continueGuestFast">Continue as guest · Fastest</small></span><span>→</span></button>
+        <button class="payment-access-choice" id="showPaymentLogin"><span class="access-icon">◉</span><span><strong data-i18n="signInMobile">Sign in with mobile</strong><small data-i18n="saveReceiptHistory">Save receipt and payment history</small></span><span>›</span></button>
+      </div>
+      <div class="payment-login-panel" id="paymentLoginPanel" hidden>
+        <label class="vehicle-field mobile-field"><span data-i18n="mobileNumber">Mobile number</span><div class="mobile-number-input"><b>+91</b><input id="paymentMobile" type="tel" inputmode="numeric" placeholder="9876543210" maxlength="10" autocomplete="tel-national"></div><small id="paymentProfileHint" data-i18n="noOtpDemo">10 digits · No OTP in this demo</small></label>
+        <button class="primary-button full" id="continueSignedInPayment" disabled><span data-i18n="continueSaveReceipt">Continue and save receipt</span> →</button>
+      </div>
+      <p class="payment-access-trust" data-i18n="paymentAccessTrust">🔒 No government username, password or OTP is requested. No real payment occurs.</p>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="renewModal" aria-hidden="true">
+    <section class="modal renew-modal" role="dialog" aria-modal="true" aria-labelledby="renewTitle">
+      <button class="modal-close" data-close="renewModal" aria-label="Close">×</button>
+      <p class="eyebrow">DRIVING LICENCE RENEWAL</p><h2 id="renewTitle" data-i18n="renewGuideTitle">Your 4-step renewal guide</h2><p data-i18n="renewGuideSub">Keep these documents ready. Sarathi will remember where you stop.</p>
+      <div class="renew-steps"><div><span>1</span><p><strong data-i18n="prepareDocs">Prepare documents</strong><small>Your current licence, Form 9 renewal application, age proof and passport photo</small></p><b>10 min</b></div><div><span>2</span><p><strong data-i18n="completeForm">Complete the online form</strong><small>Open the official Sarathi driving-licence portal for your state</small></p><b>15 min</b></div><div><span>3</span><p><strong data-i18n="bookVisit">Check whether a visit is required</strong><small>Book the Regional Transport Office only if your state asks</small></p><b>5 min</b></div><div><span>4</span><p><strong data-i18n="visitRto">Complete verification</strong><small>If called, carry every original document</small></p><b>State dependent</b></div></div>
+      <div class="source-strip">Source: Parivahan · Driving Licence Services <a href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noreferrer">View official portal ↗</a><small class="source-freshness">Jurisdiction: issuing state · Checked 24 Aug 2026 · Verify before acting</small></div>
+      <button class="primary-button full" data-close="renewModal" id="saveGuide" data-i18n="saveGuide">Save guide & remind me tomorrow</button>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="dlDetailModal" aria-hidden="true">
+    <section class="modal dl-detail-modal" role="dialog" aria-modal="true" aria-labelledby="dlDetailTitle">
+      <button class="modal-close" data-close="dlDetailModal" aria-label="Close">×</button>
+      <div class="dl-detail-head">
+        <span class="document-symbol indigo">DL</span>
+        <div><p class="eyebrow" data-i18n="licenceDetailsLabel">DRIVING LICENCE</p><h2 id="dlDetailTitle" data-i18n="licenceDetailsTitle">Licence details</h2></div>
+        <span class="status-pill amber" data-i18n="expiresSoon">Expires soon</span>
+      </div>
+      <div class="dl-number"><small data-i18n="licenceNumber">Licence number</small><strong>MH12 20110012345</strong></div>
+      <div class="detail-grid">
+        <div><small data-i18n="holderName">Holder name</small><strong>Ravi Kumar</strong></div>
+        <div><small data-i18n="validUntil">Valid until</small><strong class="amber-text">19 Sep 2026</strong></div>
+        <div><small data-i18n="vehicleClasses">Vehicle classes</small><strong>MCWG · LMV</strong></div>
+        <div><small data-i18n="issuingRto">Issuing RTO</small><strong>MH-12 Pune</strong></div>
+      </div>
+      <div class="expiry-callout"><span>!</span><div><strong data-i18n="renewWithin28">Renew within 28 days</strong><small data-i18n="lateFeeWarning">Renew before expiry to avoid a late fee and an invalid licence.</small></div></div>
+      <div class="source-strip">Source: Parivahan · Driving Licence Services <a href="https://sarathi.parivahan.gov.in/" target="_blank" rel="noreferrer">View official record ↗</a><small class="source-freshness">Jurisdiction: Maharashtra · Checked 24 Aug 2026 · Report incorrect guidance from Help</small></div>
+      <div class="document-wallet-actions"><button class="secondary-button" data-document-action="offline" data-document-id="dl">↓ Save offline</button><button class="secondary-button" data-document-action="share" data-document-id="dl">↗ Share</button></div>
+      <div class="modal-actions"><button class="secondary-button" data-close="dlDetailModal" data-i18n="close">Close</button><button class="primary-button" id="renewFromDetail"><span data-i18n="startRenewal">Start renewal guide</span><span>→</span></button></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="documentWalletModal" aria-hidden="true">
+    <section class="modal document-wallet-modal" role="dialog" aria-modal="true" aria-labelledby="documentWalletTitle">
+      <button class="modal-close" data-close="documentWalletModal" aria-label="Close document">×</button>
+      <div class="document-wallet-head"><span class="document-symbol blue" id="documentWalletIcon">RC</span><div><p class="eyebrow">OFFLINE DOCUMENT WALLET</p><h2 id="documentWalletTitle">Document</h2></div><span class="status-pill healthy">Valid</span></div>
+      <div class="wallet-document-card"><small id="documentWalletType">Transport document</small><strong id="documentWalletNumber"></strong><p id="documentWalletMeta"></p><span id="documentOfflineState">Available online</span></div>
+      <div class="offline-explainer"><span>↓</span><p><strong>Keep it available without internet</strong><small>A protected demo snapshot is stored on this device. Always verify against the original.</small></p></div>
+      <div class="document-wallet-actions"><button class="secondary-button" data-document-action="offline">↓ Save offline</button><button class="primary-button" data-document-action="share"><span>↗ Share document</span><span>→</span></button></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="profileModal" aria-hidden="true">
+    <section class="modal profile-modal" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle">
+      <button class="modal-close" data-close="profileModal" aria-label="Close">×</button>
+      <div class="profile-modal-head">
+        <div class="avatar large">RK</div>
+        <div><p class="eyebrow">YOUR PROFILE</p><h2 id="profileModalTitle">Ravi Kumar</h2></div>
+      </div>
+      <div class="detail-grid">
+        <div><small>Linked vehicles</small><strong id="profileModalVehicleCount">2 vehicles</strong></div>
+        <div><small id="profileAccessLabel">Phone</small><strong id="profileAccessValue">+91 98••••••10</strong></div>
+        <div><small>Member since</small><strong>Jan 2026</strong></div>
+        <div><small>Preferred language</small><strong id="profileLanguageLabel">English</strong></div>
+      </div>
+      <div class="modal-actions">
+        <button class="secondary-button" id="profileManageData">Manage my data</button>
+        <button class="danger-ghost-button" id="profileLogout">Log out</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="privacyModal" aria-hidden="true">
+    <section class="modal privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+      <button class="modal-close" data-close="privacyModal" aria-label="Close privacy controls">×</button>
+      <p class="eyebrow">YOUR DATA · YOUR CONTROL</p>
+      <h2 id="privacyTitle">Data stored in this demo browser</h2>
+      <p class="privacy-intro">Nothing here is connected to a government account. These controls affect only synthetic local demo data on this device.</p>
+      <div class="privacy-inventory" id="privacyInventory" aria-live="polite"></div>
+      <div class="privacy-actions">
+        <button id="privacyDownload"><span>↓</span><span><strong>Download my demo data</strong><small>Export a readable JSON copy</small></span></button>
+        <button id="privacyClearChat"><span>◇</span><span><strong>Clear chat and receipt</strong><small>Remove local conversation outcomes</small></span></button>
+        <button id="privacyClearOffline"><span>⌫</span><span><strong>Remove offline snapshots</strong><small>Keep the main prototype available</small></span></button>
+        <button class="privacy-danger" id="privacyDeleteProfile"><span>×</span><span><strong>Delete local profile</strong><small>Return to first-time onboarding</small></span></button>
+      </div>
+      <p class="privacy-status" id="privacyStatus">No data leaves this browser when these controls are used.</p>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="logoutModal" aria-hidden="true">
+    <section class="modal logout-modal" role="dialog" aria-modal="true" aria-labelledby="logoutTitle">
+      <button class="modal-close" data-close="logoutModal" aria-label="Close logout confirmation">×</button>
+      <div class="logout-visual" aria-hidden="true">↪</div>
+      <p class="eyebrow">PROFILE &amp; PRIVACY</p>
+      <h2 id="logoutTitle">Log out of this demo profile?</h2>
+      <p>Your mobile session and locally saved receipt history will be removed from this browser. You’ll return to the welcome screen.</p>
+      <div class="logout-safety"><span>✓</span><p><strong>Your official records are unaffected</strong><small>This prototype is not connected to a government account.</small></p></div>
+      <div class="modal-actions"><button class="secondary-button" data-close="logoutModal">Stay signed in</button><button class="danger-button" id="confirmLogout">Log out</button></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="addVehicleModal" aria-hidden="true">
+    <section class="modal add-vehicle-modal" role="dialog" aria-modal="true" aria-labelledby="addVehicleTitle">
+      <button class="modal-close" data-close="addVehicleModal" aria-label="Close add vehicle">×</button>
+      <p class="eyebrow" data-i18n="transportProfile">TRANSPORT PROFILE</p>
+      <h2 id="addVehicleTitle" data-i18n="addAnotherVehicle">Add another vehicle</h2>
+      <p class="add-vehicle-copy" data-i18n="addVehicleCopy">Link every vehicle you own or manage. Each vehicle keeps its own RC, insurance, PUC, challans and alerts.</p>
+      <label class="flow-field"><span data-i18n="vehicleNumber">Vehicle number</span><input id="newVehicleNumber" type="text" placeholder="MH01EF9012" maxlength="14" autocomplete="off" spellcheck="false"><small data-i18n="vehicleNumberHint">State code + numbers, no spaces</small></label>
+      <label class="flow-field"><span data-i18n="vehicleName">Vehicle name</span><input id="newVehicleName" type="text" placeholder="My family car" maxlength="28" autocomplete="off"><small data-i18n="vehicleNameHint">A simple name helps you recognise it</small></label>
+      <div class="add-vehicle-trust"><span>🔒</span><p><strong data-i18n="demoLinkOnly">Demo link only</strong><small data-i18n="noLiveLookup">No live government lookup is performed.</small></p></div>
+      <div class="modal-actions"><button class="secondary-button" data-close="addVehicleModal" data-i18n="cancel">Cancel</button><button class="primary-button" id="confirmAddVehicle" disabled><span data-i18n="linkVehicle">Link vehicle</span><span>→</span></button></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status"><span>✓</span><p></p></div>
+  <div class="mobile-overlay"></div>
+  <script src="app.js?v=20260828-50"></script>
+</body>
+</html>
