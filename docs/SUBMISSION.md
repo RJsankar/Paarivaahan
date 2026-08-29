@@ -1,13 +1,13 @@
 # Build What Moves India Submission
 
-> The public build, pitch deck and repository-hosted demo video are ready. Confirm registered team details before submitting.
+> The public build, pitch deck and demo video are ready. Confirm registered team details before submitting.
 
 ## Submission fields
 
 - **Project:** Parivahan Sarathi
 - **One-line pitch:** A multilingual transport guardian that finds the next important task, explains it plainly, and prepares citizens for a safe official handoff.
 - **Public URL:** https://paarivaahan.vercel.app/?build=20260828-53#home
-- **Demo video:** https://github.com/RJsankar/Paarivaahan/blob/main/demo%20video/PaariVahan%20Sarathi%20-%20Codex.mp4
+- **Demo video:** https://vimeo.com/1222280947
 - **Login:** Not required. The build uses a synthetic profile and supports a guest path.
 - **Recommended browser:** Current Chrome, Safari, Firefox, or Edge on mobile or desktop.
 - **Optional visual case study:** `case-study/parivahan-sarathi-design-case-study.pdf`
