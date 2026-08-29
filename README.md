@@ -2,7 +2,15 @@
 
 > A mobile-first transport guardian that turns fragmented portal journeys into one clear next action.
 
-[**Open the live app**](https://paarivaahan.vercel.app/?build=20260828-53#home) · [**Replay onboarding**](https://paarivaahan.vercel.app/?demo=onboarding&build=20260828-53#home) · [**60-second Judge Mode**](https://paarivaahan.vercel.app/?judge=1&build=20260828-53#home)
+## 🚀 Try the prototype
+
+| Experience | Link | Best for |
+|---|---|---|
+| **Live demo** | [Open Parivahan Sarathi →](https://paarivaahan.vercel.app/?build=20260828-53#home) | Exploring the complete citizen experience |
+| **First-time onboarding** | [Replay onboarding →](https://paarivaahan.vercel.app/?demo=onboarding&build=20260828-53#home) | Seeing how a new citizen gets started |
+| **Judge Mode** | [Start the 60-second evaluation →](https://paarivaahan.vercel.app/?judge=1&build=20260828-53#home) | A fast, repeatable review of the strongest flows |
+
+**Main live URL:** https://paarivaahan.vercel.app/
 
 ![Parivahan Sarathi product preview](assets/brand/og-card.png)
 
