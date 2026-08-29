@@ -2,6 +2,12 @@
 
 > A mobile-first transport guardian that turns fragmented portal journeys into one clear next action.
 
+## 🎬 Watch the public demo
+
+> ### [▶ Watch the Parivahan Sarathi demo on Vimeo →](https://vimeo.com/1222280947)
+
+See the problem, product reasoning, citizen journey and responsible Form Agent in one short walkthrough.
+
 ## 🚀 Try the prototype
 
 | Experience | Link | Best for |
