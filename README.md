@@ -14,6 +14,11 @@
 
 ![Parivahan Sarathi product preview](assets/brand/og-card.png)
 
+## Submission assets
+
+- [Download the pitch deck](docs/pitch-deck/parivahan-sarathi-pitch-deck.pptx)
+- [Watch or download the demo video](demo%20video/PaariVahan%20Sarathi%20-%20Codex.mp4)
+
 Parivahan Sarathi is an independent **Build What Moves India** hackathon prototype. It helps a citizen understand deadlines, documents, forms and official handoffs across transport services—without pretending to replace government portals.
 
 ## Why it matters
@@ -82,6 +87,7 @@ Start with the [documentation index](docs/README.md), or jump directly to:
 - [Architecture Decision Records](docs/adr/README.md)
 - [End-to-end test report](docs/TEST_REPORT.md)
 - [Reviewer guide](docs/JUDGE-GUIDE.md)
+- [Pitch deck](docs/pitch-deck/parivahan-sarathi-pitch-deck.pptx)
 - [Visual design case study](docs/case-study/parivahan-sarathi-design-case-study.pdf)
 
 ## Technology
